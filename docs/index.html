@@ -59,58 +59,70 @@
 
 	<section class="main-content">
 		<h1>anti-AD Filters</h1>
-		<p>anti-AD致力于成为中文区命中率最高的广告过滤列表，实现精确的广告屏蔽和隐私保护。现已支持AdGuardHome，dnsmasq， Surge，Pi-Hole等优秀的网络组件。</p>
+		<p>anti-AD致力于成为中文区命中率最高的广告过滤列表，实现精确的广告屏蔽和隐私保护。现已支持AdGuardHome，dnsmasq，Surge，Pi-Hole，Clash，smartdns，sing-box等网络组件。</p>
 		<p>使用anti-AD能够屏蔽广告域名，能屏蔽电视盒子广告，屏蔽app内置广告，同时屏蔽了一些日志收集、大数据统计等涉及个人隐私信息的站点，能够保护个人隐私不被偷偷上传。</p>
 		<p>本工具是通过域名解析层（DNS服务）来屏蔽广告和保护隐私的，其将各大著名的hosts，ad filter lists，adblock
 			list等的列表进行合并去重，再进行一系列的抽象化，例如主动剔除失效域名、easylist优化模糊匹配、增强的黑白名单机制等措施，最终生成期望的高命中率列表。</p>
 		<p>不同格式的<strong>过滤列表文件</strong>会定期自动更新，其分别用于不同服务中的广告过滤规则:</p>
 		<ul>
 			<li><a href="https://anti-ad.net/anti-ad-for-dnsmasq.conf">https://anti-ad.net/anti-ad-for-dnsmasq.conf</a></li>
-			<li><a href="https://anti-ad.net/easylist.txt">https://anti-ad.net/easylist.txt</a></li>
-			<li><a href="https://anti-ad.net/domains.txt">https://anti-ad.net/domains.txt</a></li>
+			<li><a href="https://anti-ad.net/easylist.txt">https://anti-ad.net/easylist.txt</a>（AdGuardHome）</li>
+			<li><a href="https://anti-ad.net/adguard.txt">https://anti-ad.net/adguard.txt</a>（AdGuard专用规则）</li>
+      <li><a href="https://anti-ad.net/domains.txt">https://anti-ad.net/domains.txt</a></li>
 			<li><a href="https://anti-ad.net/surge.txt">https://anti-ad.net/surge.txt</a></li>
 			<li><a href="https://anti-ad.net/surge2.txt">https://anti-ad.net/surge2.txt</a>（据说更节省内存）</li>
+      <li><a href="https://anti-ad.net/clash.yaml">https://anti-ad.net/clash.yaml</a></li>
 			<li><a href="https://anti-ad.net/anti-ad-for-smartdns.conf">https://anti-ad.net/anti-ad-for-smartdns.conf</a></li>
-			<li><a href="https://anti-ad.net/adguard.txt">https://anti-ad.net/adguard.txt</a>(adguard专用规则)</li>
-		</ul>
+      <li><a href="https://anti-ad.net/anti-ad-sing-box.srs">https://anti-ad.net/anti-ad-sing-box.srs</a></li>
+    </ul>
 		<table>
 			<thead>
 				<tr>
 					<th>文件名</th>
-					<th>操作参考</th>
+					<th>说明</th>
 					<th>适用范围</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td><code>anti-ad-for-dnsmasq.conf</code></td>
-					<td>1. 下载过滤列表文件后, 保存到你的dnsmasq配置的正确目录下；2. 重启dnsmasq服务；3. 已经生效了，enjoy it。</td>
+					<td>1. 下载过滤列表文件后, 保存到你的dnsmasq配置的正确目录下；<br>2. 重启dnsmasq服务；<br>3. 已经生效了，enjoy it</td>
 					<td>dnsmasq及其衍生版本</td>
 				</tr>
 				<tr>
 					<td><code>easylist.txt</code></td>
-					<td>1. 进入AdGuardHome过滤器页面；<br />2. 选择添加过滤器输入名称 anti-AD，url地址填raw链接或者jsDelivr；<br>3. 点击确认后即生效</td>
+					<td>1. 进入AdGuardHome过滤器页面；<br>2. 选择添加过滤器输入名称 anti-AD，填入url地址；<br>3. 确认后即生效</td>
 					<td>AdGuardHome</td>
 				</tr>
 				<tr>
 					<td><code>adguard.txt</code></td>
-					<td>第一步下载adguard，第二步加载规则，第三步保存</td>
+					<td>1. 下载adguard；<br>2. 加载规则；<br>3. 保存</td>
 					<td>adguard专用，解决easylist误杀的问题</td>
 				</tr>
 				<tr>
 					<td><code>domains.txt</code></td>
-					<td>以Pi-Hole为例<br>1. 进入pi-hole设置界面<br>2. 添加本domains列表链接到pi-hole的过滤器列表中<br>3. 点击save &amp; update<br>4. 更新成功后即可生效</td>
-					<td>Pi-Hole及其他。</td>
+					<td>以Pi-Hole为例：<br>1. 进入pi-hole设置界面<br>2. 添加本domains列表链接到pi-hole的过滤器列表中<br>3. 点击save &amp; update<br>4. 更新成功后即可生效</td>
+					<td>Pi-Hole或兼容服务</td>
 				</tr>
 				<tr>
-					<td><code>surge.txt</code></td>
+					<td><code>surge.txt</code> / <code>surge2.txt</code></td>
 					<td>直接订阅本条链接，保存后生效</td>
-					<td>Surge或兼容服务。</td>
+					<td>Surge或兼容服务</td>
+				</tr>
+				<tr>
+					<td><code>clash.yaml</code></td>
+					<td>需修改配置文件，请参考软件文档</td>
+					<td>Clash Premium或兼容服务</td>
 				</tr>
 				<tr>
 					<td><code>anti-ad-for-smartdns.conf</code></td>
 					<td>下载链接后保存到合适位置</td>
 					<td>SmartDNS</td>
+				</tr>
+				<tr>
+					<td><code>anti-ad-sing-box.srs</code></td>
+					<td>1. 此为二进制文件，由<code>adguard.txt</code>编译而成，有所局限，请参考<a href="https://sing-box.sagernet.org/configuration/rule-set/adguard/">sing-box文档</a>；<br>2. 需修改配置文件，请参考软件文档</td>
+					<td>sing-box（需1.10.0-alpha.25及以上版本）</td>
 				</tr>
 			</tbody>
 		</table>
