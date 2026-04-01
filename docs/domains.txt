@@ -1,7 +1,7 @@
 #TITLE=anti-AD
-#VER=20260401033154
+#VER=20260401111245
 #URL=https://github.com/privacy-protection-tools/anti-AD
-#TOTAL_LINES=115802
+#TOTAL_LINES=115801
 000491b06a.com
 000dn.com
 kwcdn.000dn.com
@@ -69486,7 +69486,6 @@ netapplications.com
 netar.net
 netavenir.com
 netbiscuits.net
-cnt.mail.netbk.co.jp
 eulerian.netbooster.com
 stats.netbopdev.co.uk
 netcatx.com
