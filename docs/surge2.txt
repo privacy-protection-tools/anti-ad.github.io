@@ -1,7 +1,7 @@
 #TITLE=anti-AD
-#VER=20260411032510
+#VER=20260413225921
 #URL=https://github.com/privacy-protection-tools/anti-AD
-#TOTAL_LINES=107074
+#TOTAL_LINES=107073
 
 #DOMAIN-SET,https://anti-ad.net/surge2.txt,REJECT
 .000491b06a.com
@@ -3424,7 +3424,6 @@
 .9vviyje1s.top
 .9wad.com
 .9wdjf9va.xyz
-.9wee.com
 .p.9wotuan.com
 .9wushuo.com
 .9xeqynu3gt7c.com
